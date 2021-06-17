@@ -4,50 +4,69 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <div class="container">
         <div class="square" id="square1">
             1
         </div>
         <div class="square" id="square2">
             2
         </div>
+        <div class="square" id="square3">
+            3
+        </div>
+    </div>
     <script>
-        var Top1 = Math.random() * 500;
-        var Left1 = Math.random() * 900;
+        var Top1 = Math.random() * 90;
+        var Left1 = Math.random() * 90;
         var square1 = document.querySelector('#square1');
-        square1.style.setProperty('--top1', Top1 + 'px');
-        square1.style.setProperty('--left1', Left1 + 'px');
-        var Top2 = Math.random() * 500;
-        var Left2 = Math.random() * 900;
+        square1.style.setProperty('--top1', Top1 + '%');
+        square1.style.setProperty('--left1', Left1 + '%');
+        var Top2 = Math.random() * 90;
+        var Left2 = Math.random() * 90;
         var square2 = document.querySelector('#square2');
-        square2.style.setProperty('--left1', Left2 + 'px');
-        for (var i = (Top1 - 10); i < (Top1 + 11); i++) {
-            if (Top2 == i) {
-                square2.style.setProperty('--top1', (Top2 + 120) + 'px');
-            }
-            else {
-                square2.style.setProperty('--top1', Top2 + 'px');
-            }
+        square2.style.setProperty('--top1', Top2 + '%');
+        square2.style.setProperty('--left1', Left2 + '%');
+        var rect1 = square1.getBoundingClientRect();
+        var rect2 = square2.getBoundingClientRect();
+        var overlap = !(rect1.right < rect2.left || 
+                rect1.left > rect2.right || 
+                rect1.bottom < rect2.top || 
+                rect1.top > rect2.bottom)
+        if (overlap == false) {
+            square2.style.setProperty('--top1', Top2 + '%');
+        }
+        else {
+            Top2 = Top2 + 10;
+            square2.style.setProperty('--top1', Top2 + '%');
+        }
+        var Top3 = Math.random() * 90;
+        var Left3 = Math.random() * 90;
+        var square3 = document.querySelector('#square3');
+        square3.style.setProperty('--top1', Top3 + '%');
+        square3.style.setProperty('--left1', Left3 + '%');
+        var rect3 = square3.getBoundingClientRect();
+        var overlap = !(rect1.right < rect3.left || 
+                rect1.left > rect3.right || 
+                rect1.bottom < rect3.top || 
+                rect1.top > rect3.bottom)
+        if (overlap == false) {
+            square3.style.setProperty('--top1', Top3 + '%');
+        }
+        else {
+            Top3 = Top3 + 10;
+            square3.style.setProperty('--top1', Top3 + '%');
+        }
+        var overlap = !(rect2.right < rect3.left || 
+                rect2.left > rect3.right || 
+                rect2.bottom < rect3.top || 
+                rect2.top > rect3.bottom)
+        if (overlap == false) {
+            square3.style.setProperty('--top1', Top3 + '%');
+        }
+        else {
+            Top3 = Top3 + 10;
+            square3.style.setProperty('--top1', Top3 + '%');
         }
     </script>
 </body>
 </html>
-<!-- 
-    var Top3 = Math.random() * 500;
-        var Left3 = Math.random() * 900;
-        var square3 = document.querySelector('#square3');
-        square3.style.setProperty('--left1', Left3 + 'px');
-        var j = Top2 - 10;
-        for (var i = (Top1 - 10); i < (Top1 + 11); i++) {
-        j = j + 1;
-        if (Top3 == i | Top3 == j) {
-            square3.style.setProperty('--top1', (Top3 + 120) + 'px');
-        }
-        else {
-            square3.style.setProperty('--top1', Top3 + 'px');
-        }
-    }
-
-  <div class="square" id="square3">
-      3
-  </div> 
--->

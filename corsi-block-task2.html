@@ -14,6 +14,12 @@
         <div class="square" id="square3">
             3
         </div>
+        <div class="square" id="square4">
+            4
+        </div>
+        <div class="square" id="square5">
+            5
+        </div>
     </div>
     <script>
         var Top1 = Math.random() * 90;
@@ -36,7 +42,7 @@
             square2.style.setProperty('--top1', Top2 + '%');
         }
         else {
-            Top2 = Top2 + 10;
+            Top2 = Top2 + 22;
             square2.style.setProperty('--top1', Top2 + '%');
         }
         var Top3 = Math.random() * 90;
@@ -53,7 +59,7 @@
             square3.style.setProperty('--top1', Top3 + '%');
         }
         else {
-            Top3 = Top3 + 10;
+            Top3 = Top3 + 22;
             square3.style.setProperty('--top1', Top3 + '%');
         }
         var overlap = !(rect2.right < rect3.left || 
@@ -64,8 +70,97 @@
             square3.style.setProperty('--top1', Top3 + '%');
         }
         else {
-            Top3 = Top3 + 10;
+            Top3 = Top3 + 22;
             square3.style.setProperty('--top1', Top3 + '%');
+        }
+        var Top4 = Math.random() * 90;
+        var Left4 = Math.random() * 90;
+        var square4 = document.querySelector('#square4');
+        square4.style.setProperty('--top1', Top4 + '%');
+        square4.style.setProperty('--left1', Left4 + '%');
+        var rect4 = square4.getBoundingClientRect();
+        var overlap = !(rect1.right < rect4.left || 
+                rect1.left > rect4.right || 
+                rect1.bottom < rect4.top || 
+                rect1.top > rect4.bottom)
+        if (overlap == false) {
+            square4.style.setProperty('--top1', Top4 + '%');
+        }
+        else {
+            Top4 = Top4 + 22;
+            square4.style.setProperty('--top1', Top4 + '%');
+        }
+        var overlap = !(rect2.right < rect4.left || 
+                rect2.left > rect4.right || 
+                rect2.bottom < rect4.top || 
+                rect2.top > rect4.bottom)
+        if (overlap == false) {
+            square4.style.setProperty('--top1', Top4 + '%');
+        }
+        else {
+            Top4 = Top4 + 22;
+            square4.style.setProperty('--top1', Top4 + '%');
+        }
+        var overlap = !(rect3.right < rect4.left || 
+                rect3.left > rect4.right || 
+                rect3.bottom < rect4.top || 
+                rect3.top > rect4.bottom)
+        if (overlap == false) {
+            square4.style.setProperty('--top1', Top4 + '%');
+        }
+        else {
+            Top4 = Top4 + 22;
+            square4.style.setProperty('--top1', Top4 + '%');
+        }
+        var Top5 = Math.random() * 90;
+        var Left5 = Math.random() * 90;
+        var square5 = document.querySelector('#square5');
+        square5.style.setProperty('--top1', Top5 + '%');
+        square5.style.setProperty('--left1', Left5 + '%');
+        var rect5 = square5.getBoundingClientRect();
+        var overlap = !(rect1.right < rect5.left || 
+                rect1.left > rect5.right || 
+                rect1.bottom < rect5.top || 
+                rect1.top > rect5.bottom)
+        if (overlap == false) {
+            square5.style.setProperty('--top1', Top5 + '%');
+        }
+        else {
+            Top5 = Top5 + 22;
+            square5.style.setProperty('--top1', Top5 + '%');
+        }
+        var overlap = !(rect2.right < rect5.left || 
+                rect2.left > rect5.right || 
+                rect2.bottom < rect5.top || 
+                rect2.top > rect5.bottom)
+        if (overlap == false) {
+            square5.style.setProperty('--top1', Top5 + '%');
+        }
+        else {
+            Top5 = Top5 + 22;
+            square5.style.setProperty('--top1', Top5 + '%');
+        }
+        var overlap = !(rect3.right < rect5.left || 
+                rect3.left > rect5.right || 
+                rect3.bottom < rect5.top || 
+                rect3.top > rect5.bottom)
+        if (overlap == false) {
+            square5.style.setProperty('--top1', Top5 + '%');
+        }
+        else {
+            Top5 = Top5 + 22;
+            square5.style.setProperty('--top1', Top5 + '%');
+        }
+        var overlap = !(rect4.right < rect5.left || 
+                rect4.left > rect5.right || 
+                rect4.bottom < rect5.top || 
+                rect4.top > rect5.bottom)
+        if (overlap == false) {
+            square5.style.setProperty('--top1', Top5 + '%');
+        }
+        else {
+            Top5 = Top5 + 22;
+            square5.style.setProperty('--top1', Top5 + '%');
         }
     </script>
 </body>

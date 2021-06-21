@@ -20,148 +20,225 @@
         <div class="square" id="square5">
             5
         </div>
+        <div class="square" id="square6">
+            6
+        </div>
+        <div class="square" id="square7">
+            7
+        </div>
+        <div class="square" id="square8">
+            8
+        </div>
+        <div class="square" id="square9">
+            9
+        </div>
     </div>
     <script>
-        var Top1 = Math.random() * 90;
-        var Left1 = Math.random() * 90;
-        var square1 = document.querySelector('#square1');
-        square1.style.setProperty('--top1', Top1 + '%');
-        square1.style.setProperty('--left1', Left1 + '%');
-        var Top2 = Math.random() * 90;
-        var Left2 = Math.random() * 90;
-        var square2 = document.querySelector('#square2');
-        square2.style.setProperty('--top1', Top2 + '%');
-        square2.style.setProperty('--left1', Left2 + '%');
-        var rect1 = square1.getBoundingClientRect();
-        var rect2 = square2.getBoundingClientRect();
-        var overlap = !(rect1.right < rect2.left || 
-                rect1.left > rect2.right || 
-                rect1.bottom < rect2.top || 
-                rect1.top > rect2.bottom)
-        if (overlap == false) {
-            square2.style.setProperty('--top1', Top2 + '%');
+        function random1(multiplier) {
+            return Math.random() * multiplier;
         }
-        else {
-            Top2 = Top2 + 22;
-            square2.style.setProperty('--top1', Top2 + '%');
+
+        function initializeSquare(squareNum) {
+            var Top = random1(90);
+            var Left = random1(90);
+            var square = document.querySelector('#square'+squareNum);
+            square.style.setProperty('--top1', Top + '%');
+            square.style.setProperty('--left1', Left + '%');
         }
-        var Top3 = Math.random() * 90;
-        var Left3 = Math.random() * 90;
-        var square3 = document.querySelector('#square3');
-        square3.style.setProperty('--top1', Top3 + '%');
-        square3.style.setProperty('--left1', Left3 + '%');
-        var rect3 = square3.getBoundingClientRect();
-        var overlap = !(rect1.right < rect3.left || 
-                rect1.left > rect3.right || 
-                rect1.bottom < rect3.top || 
-                rect1.top > rect3.bottom)
-        if (overlap == false) {
-            square3.style.setProperty('--top1', Top3 + '%');
+
+        for (var i = 1; i < 10; i++) {
+            initializeSquare(i);
         }
-        else {
-            Top3 = Top3 + 22;
-            square3.style.setProperty('--top1', Top3 + '%');
+        
+        function overlap(square1, square2) {
+            var s1 = document.querySelector('#square'+square1);
+            var s2 = document.querySelector('#square'+square2);
+            var bounding1 = s1.getBoundingClientRect();
+            var bounding2 = s2.getBoundingClientRect();
+            var Overlap = !(bounding1.right < bounding2.left ||
+                    bounding1.left > bounding2.right ||
+                    bounding1.bottom < bounding2.top ||
+                    bounding1.top > bounding2.bottom);
         }
-        var overlap = !(rect2.right < rect3.left || 
-                rect2.left > rect3.right || 
-                rect2.bottom < rect3.top || 
-                rect2.top > rect3.bottom)
-        if (overlap == false) {
-            square3.style.setProperty('--top1', Top3 + '%');
+        
+        var total = 1;
+        while (total > 0) {
+            total = 0;
+            for (var i = 1; i < 10; i++) {
+                for (var j = 1; j < 10; j++) {
+                    if (overlap(i,j) == false) {
+                        i = i;
+                    }
+                    else {
+                        initializeSquare(i);
+                        total += 1;
+                    }
+                }
+            }
         }
-        else {
-            Top3 = Top3 + 22;
-            square3.style.setProperty('--top1', Top3 + '%');
-        }
-        var Top4 = Math.random() * 90;
-        var Left4 = Math.random() * 90;
-        var square4 = document.querySelector('#square4');
-        square4.style.setProperty('--top1', Top4 + '%');
-        square4.style.setProperty('--left1', Left4 + '%');
-        var rect4 = square4.getBoundingClientRect();
-        var overlap = !(rect1.right < rect4.left || 
-                rect1.left > rect4.right || 
-                rect1.bottom < rect4.top || 
-                rect1.top > rect4.bottom)
-        if (overlap == false) {
-            square4.style.setProperty('--top1', Top4 + '%');
-        }
-        else {
-            Top4 = Top4 + 22;
-            square4.style.setProperty('--top1', Top4 + '%');
-        }
-        var overlap = !(rect2.right < rect4.left || 
-                rect2.left > rect4.right || 
-                rect2.bottom < rect4.top || 
-                rect2.top > rect4.bottom)
-        if (overlap == false) {
-            square4.style.setProperty('--top1', Top4 + '%');
-        }
-        else {
-            Top4 = Top4 + 22;
-            square4.style.setProperty('--top1', Top4 + '%');
-        }
-        var overlap = !(rect3.right < rect4.left || 
-                rect3.left > rect4.right || 
-                rect3.bottom < rect4.top || 
-                rect3.top > rect4.bottom)
-        if (overlap == false) {
-            square4.style.setProperty('--top1', Top4 + '%');
-        }
-        else {
-            Top4 = Top4 + 22;
-            square4.style.setProperty('--top1', Top4 + '%');
-        }
-        var Top5 = Math.random() * 90;
-        var Left5 = Math.random() * 90;
-        var square5 = document.querySelector('#square5');
-        square5.style.setProperty('--top1', Top5 + '%');
-        square5.style.setProperty('--left1', Left5 + '%');
-        var rect5 = square5.getBoundingClientRect();
-        var overlap = !(rect1.right < rect5.left || 
-                rect1.left > rect5.right || 
-                rect1.bottom < rect5.top || 
-                rect1.top > rect5.bottom)
-        if (overlap == false) {
-            square5.style.setProperty('--top1', Top5 + '%');
-        }
-        else {
-            Top5 = Top5 + 22;
-            square5.style.setProperty('--top1', Top5 + '%');
-        }
-        var overlap = !(rect2.right < rect5.left || 
-                rect2.left > rect5.right || 
-                rect2.bottom < rect5.top || 
-                rect2.top > rect5.bottom)
-        if (overlap == false) {
-            square5.style.setProperty('--top1', Top5 + '%');
-        }
-        else {
-            Top5 = Top5 + 22;
-            square5.style.setProperty('--top1', Top5 + '%');
-        }
-        var overlap = !(rect3.right < rect5.left || 
-                rect3.left > rect5.right || 
-                rect3.bottom < rect5.top || 
-                rect3.top > rect5.bottom)
-        if (overlap == false) {
-            square5.style.setProperty('--top1', Top5 + '%');
-        }
-        else {
-            Top5 = Top5 + 22;
-            square5.style.setProperty('--top1', Top5 + '%');
-        }
-        var overlap = !(rect4.right < rect5.left || 
-                rect4.left > rect5.right || 
-                rect4.bottom < rect5.top || 
-                rect4.top > rect5.bottom)
-        if (overlap == false) {
-            square5.style.setProperty('--top1', Top5 + '%');
-        }
-        else {
-            Top5 = Top5 + 22;
-            square5.style.setProperty('--top1', Top5 + '%');
-        }
+        // const array1 = Array(0);
+        // var total = 0;
+        // for (var i = 0; i < array1.length; i++) {
+        //     total += array1[i];
+        // }
+
+        // if (total > 0) {
+        //     const array1 = Array(0);
+        //     for (var i = 1; i < 10; i++) {
+        //         for (var j = 1; j < 10; j++) {
+        //             if (overlap(i,j) == 0) {
+        //                 i = i;
+        //             }
+        //             else {
+        //                 initializeSquare(i);
+        //             }
+        //             array1.push(overlap(i,j));
+        //         }
+        //     } 
+        // }
+        // else {
+        //     total = total;
+        // }
+        // var Top1 = random1(90);
+        // var Left1 = random1(90);
+        // var square1 = document.querySelector('#square1');
+        // square1.style.setProperty('--top1', Top1 + '%');
+        // square1.style.setProperty('--left1', Left1 + '%');
+        // var Top2 = random1(90);
+        // var Left2 = random1(90);
+        // var square2 = document.querySelector('#square2');
+        // square2.style.setProperty('--top1', Top2 + '%');
+        // square2.style.setProperty('--left1', Left2 + '%');
+        // var rect1 = square1.getBoundingClientRect();
+        // var rect2 = square2.getBoundingClientRect();
+        // var overlap = !(rect1.right < rect2.left || 
+        //         rect1.left > rect2.right || 
+        //         rect1.bottom < rect2.top || 
+        //         rect1.top > rect2.bottom)
+        // if (overlap == false) {
+        //     square2.style.setProperty('--top1', Top2 + '%');
+        // }
+        // else {
+        //     Top2 = Top2 + 22;
+        //     square2.style.setProperty('--top1', Top2 + '%');
+        // }
+        // var Top3 = random1(90);
+        // var Left3 = random1(90);
+        // var square3 = document.querySelector('#square3');
+        // square3.style.setProperty('--top1', Top3 + '%');
+        // square3.style.setProperty('--left1', Left3 + '%');
+        // var rect3 = square3.getBoundingClientRect();
+        // var overlap = !(rect1.right < rect3.left || 
+        //         rect1.left > rect3.right || 
+        //         rect1.bottom < rect3.top || 
+        //         rect1.top > rect3.bottom)
+        // if (overlap == false) {
+        //     square3.style.setProperty('--top1', Top3 + '%');
+        // }
+        // else {
+        //     Top3 = Top3 + 22;
+        //     square3.style.setProperty('--top1', Top3 + '%');
+        // }
+        // var overlap = !(rect2.right < rect3.left || 
+        //         rect2.left > rect3.right || 
+        //         rect2.bottom < rect3.top || 
+        //         rect2.top > rect3.bottom)
+        // if (overlap == false) {
+        //     square3.style.setProperty('--top1', Top3 + '%');
+        // }
+        // else {
+        //     Top3 = Top3 + 22;
+        //     square3.style.setProperty('--top1', Top3 + '%');
+        // }
+        // var Top4 = random1(90);
+        // var Left4 = random1(90);
+        // var square4 = document.querySelector('#square4');
+        // square4.style.setProperty('--top1', Top4 + '%');
+        // square4.style.setProperty('--left1', Left4 + '%');
+        // var rect4 = square4.getBoundingClientRect();
+        // var overlap = !(rect1.right < rect4.left || 
+        //         rect1.left > rect4.right || 
+        //         rect1.bottom < rect4.top || 
+        //         rect1.top > rect4.bottom)
+        // if (overlap == false) {
+        //     square4.style.setProperty('--top1', Top4 + '%');
+        // }
+        // else {
+        //     Top4 = Top4 + 22;
+        //     square4.style.setProperty('--top1', Top4 + '%');
+        // }
+        // var overlap = !(rect2.right < rect4.left || 
+        //         rect2.left > rect4.right || 
+        //         rect2.bottom < rect4.top || 
+        //         rect2.top > rect4.bottom)
+        // if (overlap == false) {
+        //     square4.style.setProperty('--top1', Top4 + '%');
+        // }
+        // else {
+        //     Top4 = Top4 + 22;
+        //     square4.style.setProperty('--top1', Top4 + '%');
+        // }
+        // var overlap = !(rect3.right < rect4.left || 
+        //         rect3.left > rect4.right || 
+        //         rect3.bottom < rect4.top || 
+        //         rect3.top > rect4.bottom)
+        // if (overlap == false) {
+        //     square4.style.setProperty('--top1', Top4 + '%');
+        // }
+        // else {
+        //     Top4 = Top4 + 22;
+        //     square4.style.setProperty('--top1', Top4 + '%');
+        // }
+        // var Top5 = random1(90);
+        // var Left5 = random1(90);
+        // var square5 = document.querySelector('#square5');
+        // square5.style.setProperty('--top1', Top5 + '%');
+        // square5.style.setProperty('--left1', Left5 + '%');
+        // var rect5 = square5.getBoundingClientRect();
+        // var overlap = !(rect1.right < rect5.left || 
+        //         rect1.left > rect5.right || 
+        //         rect1.bottom < rect5.top || 
+        //         rect1.top > rect5.bottom)
+        // if (overlap == false) {
+        //     square5.style.setProperty('--top1', Top5 + '%');
+        // }
+        // else {
+        //     Top5 = Top5 + 22;
+        //     square5.style.setProperty('--top1', Top5 + '%');
+        // }
+        // var overlap = !(rect2.right < rect5.left || 
+        //         rect2.left > rect5.right || 
+        //         rect2.bottom < rect5.top || 
+        //         rect2.top > rect5.bottom)
+        // if (overlap == false) {
+        //     square5.style.setProperty('--top1', Top5 + '%');
+        // }
+        // else {
+        //     Top5 = Top5 + 22;
+        //     square5.style.setProperty('--top1', Top5 + '%');
+        // }
+        // var overlap = !(rect3.right < rect5.left || 
+        //         rect3.left > rect5.right || 
+        //         rect3.bottom < rect5.top || 
+        //         rect3.top > rect5.bottom)
+        // if (overlap == false) {
+        //     square5.style.setProperty('--top1', Top5 + '%');
+        // }
+        // else {
+        //     Top5 = Top5 + 22;
+        //     square5.style.setProperty('--top1', Top5 + '%');
+        // }
+        // var overlap = !(rect4.right < rect5.left || 
+        //         rect4.left > rect5.right || 
+        //         rect4.bottom < rect5.top || 
+        //         rect4.top > rect5.bottom)
+        // if (overlap == false) {
+        //     square5.style.setProperty('--top1', Top5 + '%');
+        // }
+        // else {
+        //     Top5 = Top5 + 22;
+        //     square5.style.setProperty('--top1', Top5 + '%');
+        // }
     </script>
 </body>
 </html>
